@@ -1,5 +1,4 @@
 package com.bridgelabz;
-
 import java.util.Scanner;
 
 public class RegexExpression
@@ -31,6 +30,13 @@ public class RegexExpression
         }
         return false;
     }
+    public boolean mobile(String mobile) {
+        String pattern  = "^(91)[\\s]{1}[1-9]{1}[0-9]{9}$";
+        if (mobile.matches(pattern)) {
+            return true;
+        }
+        return false;
+    }
     public static void main(String[] args)
     {
         RegexExpression regex = new RegexExpression();
@@ -47,5 +53,9 @@ public class RegexExpression
         System.out.println("Enter the email address:");
         String email = scan.nextLine();
         System.out.println(regex.email(email));
+
+        System.out.println("Enter the mobile number:");
+        String mobile = scan.nextLine();
+        System.out.println(regex.mobile(mobile));
     }
 }
