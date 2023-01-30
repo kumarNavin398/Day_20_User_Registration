@@ -38,7 +38,7 @@ public class RegexExpression
         return false;
     }
     public boolean password(String password) {
-        String pattern  = "(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}";
+        String pattern  = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])([#?!@$%^&*-]).{8,}$";
         if (password.matches(pattern)) {
             return true;
         }
