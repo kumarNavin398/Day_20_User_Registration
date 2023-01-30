@@ -38,8 +38,15 @@ public class RegexExpression
         return false;
     }
     public boolean password(String password) {
-        String pattern  = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])([#?!@$%^&*-]).{8,}$";
+        String pattern  = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$";
         if (password.matches(pattern)) {
+            return true;
+        }
+        return false;
+    }
+    public boolean validEmail(String email) {
+        String pattern = "^(abc)[0-9+-]*(@)[0-9a-z]{1,}(.com){1,}(.au)*$|^(abc)[0-9+-]*(@)[0-9a-z]{1,}(.net){1}$";
+        if(email.matches(pattern)) {
             return true;
         }
         return false;
@@ -68,5 +75,9 @@ public class RegexExpression
         System.out.println("Enter the password :");
         String password = scan.nextLine();
         System.out.println(regex.password(password));
+
+        System.out.println("Enter the email address:");
+        String emailInput = scan.nextLine();
+        System.out.println(regex.validEmail(emailInput));
     }
 }
